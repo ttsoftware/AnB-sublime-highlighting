@@ -1,0 +1,37 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+name: AnB
+scopeName: source.AnB
+fileTypes: [AnB]
+uuid: 08df971c-e35e-4ef4-8c72-5152cca5c46a
+
+patterns:
+- name: keyword
+  match: (Protocol)|(Types)|(Knowledge)|(Actions)|(Goals)
+
+- name: entity.other.attribute-name
+  match: (Agent)|(Number)|(Function)|(Symmetric_key)
+
+- name: support.class
+  match: (authenticates)|(on)|(secret between)|(where)
+
+- match: '[^a-zA-Z]+((hash)|(sk)|(pk)|(inv))[^a-zA-Z]+'
+  captures:
+    '1': {name: variable.parameter}
+
+- begin: .+
+  beginCaptures:
+    '1': {name: variable.other.less}
+  end: ;
+  patterns:
+  - {name: variable.other.less}
+  - match: .
+    include: $self
+
+- name: comment
+  match: \#.*$
+
+- name: source.c++ meta.preprocessor.c.include string.quoted.other.lt-gt.include.c
+  match: (\-\>)|(\:)
+
+- name: support.constant
+  match: \{\|[a-zA-Z ]+\|\}

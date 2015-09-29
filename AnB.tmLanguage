@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>AnB</string>
+	</array>
+	<key>name</key>
+	<string>AnB</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>(Protocol)|(Types)|(Knowledge)|(Actions)|(Goals)</string>
+			<key>name</key>
+			<string>keyword</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(Agent)|(Number)|(Function)|(Symmetric_key)</string>
+			<key>name</key>
+			<string>entity.other.attribute-name</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(authenticates)|(on)|(secret between)|(where)</string>
+			<key>name</key>
+			<string>support.class</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>Agent</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>variable.other.less</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>;</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>C</string>
+					<key>name</key>
+					<string>variable.other.less</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\#.*$</string>
+			<key>name</key>
+			<string>comment</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(\-\&gt;)|(\:)</string>
+			<key>name</key>
+			<string>source.c++ meta.preprocessor.c.include string.quoted.other.lt-gt.include.c</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\{\|[a-zA-Z ]+\|\}</string>
+			<key>name</key>
+			<string>support.constant</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.AnB</string>
+	<key>uuid</key>
+	<string>08df971c-e35e-4ef4-8c72-5152cca5c46a</string>
+</dict>
+</plist>
